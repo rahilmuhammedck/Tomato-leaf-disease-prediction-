@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato Leaf Disease Prediction - Result Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Results</h1>
+        <div id="results">
+            <!-- Prediction result will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // Check if image is uploaded
+        if(localStorage.getItem('imageUploaded')) {
+            // If image is uploaded, display results
+            displayResult();
+        } else {
+            // If no image uploaded, display message
+            document.getElementById('results').innerHTML = '<p>No image uploaded. Please upload an image to see the results.</p>';
+        }
+
+        function displayResult() {
+            var resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // Clear previous result
+
+            var ul = document.createElement('ul');
+
+            // Generate a single random prediction for tomato leaf diseases
+            var prediction = generateRandomPrediction();
+            var li = document.createElement('li');
+            li.textContent = prediction.disease + ' - Accuracy: ' + prediction.accuracy;
+            ul.appendChild(li);
+
+            resultsDiv.appendChild(ul);
+        }
+
+        // Function to generate a single random prediction for tomato leaf diseases
+        function generateRandomPrediction() {
+            var diseases = ["Early Blight", "Late Blight", "Leaf Mold", "Bacterial Spot"];
+            var randomDisease = diseases[Math.floor(Math.random() * diseases.length)];
+            var accuracy = Math.floor(Math.random() * 26) + 70; // Random accuracy between 70 and 95
+            return { disease: randomDisease, accuracy: accuracy + "%" };
+        }
+    </script>
+</body>
+</html>
