@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato Leaf Disease Prediction - Main Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tomato Leaf Disease Prediction</h1>
+        <p>Welcome to the Tomato Leaf Disease Prediction tool. Upload an image of a tomato leaf to predict potential diseases.</p>
+        <form id="upload-form" enctype="multipart/form-data">
+            <input type="file" id="image-upload" accept="image/*" required>
+            <button type="submit">Predict</button>
+        </form>
+        <div id="prediction-message"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Function to handle form submission
+        $('#upload-form').submit(function(e) {
+            e.preventDefault();
+            var formData = new FormData();
+            var fileInput = $('#image-upload')[0].files[0];
+            formData.append('file', fileInput);
+            
+            // Store image in localStorage
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                localStorage.setItem('uploadedImage', event.target.result);
+                window.location.href = 'result.html'; // Redirect to result page
+            };
+            reader.readAsDataURL(fileInput);
+        });
+    </script>
+</body>
+</html>
