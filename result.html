@@ -20,7 +20,7 @@
         }
         
         .background-image {
-            background-image: url('result.jpg');
+            background-image: url('result-background.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -55,4 +55,19 @@
             // Generate a single random prediction for tomato leaf diseases
             var prediction = generateRandomPrediction();
             var li = document.createElement('li');
-            li.textContent =
+            li.textContent = prediction.disease + ' - Accuracy: ' + prediction.accuracy;
+            ul.appendChild(li);
+
+            resultsDiv.appendChild(ul);
+        }
+
+        // Function to generate a single random prediction for tomato leaf diseases
+        function generateRandomPrediction() {
+            var diseases = ["Early Blight", "Late Blight", "Leaf Mold", "Bacterial Spot"];
+            var randomDisease = diseases[Math.floor(Math.random() * diseases.length)];
+            var accuracy = Math.floor(Math.random() * 26) + 70; // Random accuracy between 70 and 95
+            return { disease: randomDisease, accuracy: accuracy + "%" };
+        }
+    </script>
+</body>
+</html>
