@@ -4,16 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tomato Leaf Disease Prediction - Result Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .background-image {
+            background-image: url('result.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+        }
+    </style>
 </head>
-<body>
+<body class="background-image">
     <div class="container">
         <h1>Prediction Results</h1>
         <div id="results">
             <!-- Prediction result will be dynamically inserted here -->
         </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         // Check if image is uploaded
         if(localStorage.getItem('imageUploaded')) {
@@ -33,19 +55,4 @@
             // Generate a single random prediction for tomato leaf diseases
             var prediction = generateRandomPrediction();
             var li = document.createElement('li');
-            li.textContent = prediction.disease + ' - Accuracy: ' + prediction.accuracy;
-            ul.appendChild(li);
-
-            resultsDiv.appendChild(ul);
-        }
-
-        // Function to generate a single random prediction for tomato leaf diseases
-        function generateRandomPrediction() {
-            var diseases = ["Early Blight", "Late Blight", "Leaf Mold", "Bacterial Spot"];
-            var randomDisease = diseases[Math.floor(Math.random() * diseases.length)];
-            var accuracy = Math.floor(Math.random() * 26) + 70; // Random accuracy between 70 and 95
-            return { disease: randomDisease, accuracy: accuracy + "%" };
-        }
-    </script>
-</body>
-</html>
+            li.textContent =
