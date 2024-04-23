@@ -4,36 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Tomato Leaf Disease Prediction</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .background-image {
+            background-image: url('welcome-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+        }
+    </style>
 </head>
-<body>
-    <div class="background-image">
-        <div class="container">
-            <h1>Welcome to Tomato Leaf Disease Prediction</h1>
-            <p>Tomato plants are susceptible to various diseases that can affect their growth and yield.</p>
-            <p>Use this web application to upload images of tomato leaves and predict diseases for early detection and management.</p>
-            <p>The following are common diseases that can affect tomato plants:</p>
-            <ul>
-                <li>
-                    <img src="early_blight.jpg" alt="Early Blight" class="disease-image">
-                    Early Blight
-                </li>
-                <li>
-                    <img src="late_blight.jpg" alt="Late Blight" class="disease-image">
-                    Late Blight
-                </li>
-                <li>
-                    <img src="leaf_mold.jpg" alt="Leaf Mold" class="disease-image">
-                    Leaf Mold
-                </li>
-                <li>
-                    <img src="bacterial_spot.jpg" alt="Bacterial Spot" class="disease-image">
-                    Bacterial Spot
-                </li>
-            </ul>
-            <p>Click the button below to get started:</p>
-            <a href="main.html" class="button">Start Prediction</a>
-        </div>
+<body class="background-image">
+    <div class="container">
+        <h1>Welcome to Tomato Leaf Disease Prediction</h1>
+        <p>Tomato plants are susceptible to various diseases that can affect their growth and yield.</p>
+        <p>Use this web application to upload images of tomato leaves and predict diseases for early detection and management.</p>
+        <p>The following are common diseases that can affect tomato plants:</p>
+        <ul>
+            <li>Early Blight</li>
+            <li>Late Blight</li>
+            <li>Leaf Mold</li>
+            <li>Bacterial Spot</li>
+        </ul>
+        <p>Click the button below to get started:</p>
+        <a href="main-page.html" class="button">Start Prediction</a>
     </div>
 </body>
 </html>
