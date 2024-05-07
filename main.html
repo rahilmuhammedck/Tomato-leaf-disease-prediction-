@@ -48,7 +48,7 @@
             var reader = new FileReader();
             reader.onload = function(event) {
                 localStorage.setItem('uploadedImage', event.target.result);
-                window.location.href = 'result-page.html'; // Redirect to result page
+                window.location.href = 'result.html'; // Redirect to result page
             };
             reader.readAsDataURL(fileInput);
         });
